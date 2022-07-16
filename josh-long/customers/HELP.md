@@ -1,0 +1,60 @@
+# Getting Started
+
+### Reference Documentation
+For further reference, please consider the following sections:
+
+* [Official Apache Maven documentation](https://maven.apache.org/guides/index.html)
+* [Spring Boot Maven Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.7.1/maven-plugin/reference/html/)
+* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.7.1/maven-plugin/reference/html/#build-image)
+* [Spring Reactive Web](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#web.reactive)
+* [Spring Data R2DBC](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#data.sql.r2dbc)
+* [Spring Boot Actuator](https://docs.spring.io/spring-boot/docs/2.7.1/reference/htmlsingle/#actuator)
+* [Spring Native Reference Guide](https://docs.spring.io/spring-native/docs/current/reference/htmlsingle/)
+
+### Guides
+The following guides illustrate how to use some features concretely:
+
+* [Building a Reactive RESTful Web Service](https://spring.io/guides/gs/reactive-rest-service/)
+* [Acessing data with R2DBC](https://spring.io/guides/gs/accessing-data-r2dbc/)
+* [Building a RESTful Web Service with Spring Boot Actuator](https://spring.io/guides/gs/actuator-service/)
+
+### Additional Links
+These additional references should also help you:
+
+* [Configure the Spring AOT Plugin](https://docs.spring.io/spring-native/docs/0.12.1/reference/htmlsingle/#spring-aot-maven)
+* [R2DBC Homepage](https://r2dbc.io)
+
+## Spring Native
+
+This project has been configured to let you generate either a lightweight container or a native executable.
+
+### Lightweight Container with Cloud Native Buildpacks
+If you're already familiar with Spring Boot container images support, this is the easiest way to get started with Spring Native.
+Docker should be installed and configured on your machine prior to creating the image, see [the Getting Started section of the reference guide](https://docs.spring.io/spring-native/docs/0.12.1/reference/htmlsingle/#getting-started-buildpacks).
+
+To create the image, run the following goal:
+
+```
+$ ./mvnw spring-boot:build-image
+```
+
+Then, you can run the app like any other container:
+
+```
+$ docker run --rm customers:0.0.1-SNAPSHOT
+```
+
+### Executable with Native Build Tools
+Use this option if you want to explore more options such as running your tests in a native image.
+The GraalVM native-image compiler should be installed and configured on your machine, see [the Getting Started section of the reference guide](https://docs.spring.io/spring-native/docs/0.12.1/reference/htmlsingle/#getting-started-native-build-tools).
+
+To create the executable, run the following goal:
+
+```
+$ ./mvnw package -Pnative
+```
+
+Then, you can run the app as follows:
+```
+$ target/customers
+```
